@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<configuracaoTSP>
+
+  <name>tspconfig</name>
+
+  <source>TSPLIB</source>
+
+  <description>Configuração da programa de Algoritmo Genético</description>
+
+  <integer>15</integer>
+
+  <printParcial>1</printParcial>
+  <tamanhoPopulacao>200</tamanhoPopulacao>
+  <numGeracoes>300</numGeracoes>
+  <percentManipulacao>30</percentManipulacao>
+  <percentMutacao>20</percentMutacao>
+  <tipoMutacaoPopulacao>2</tipoMutacaoPopulacao>
+  <tipoMutacaoIndividuo>0</tipoMutacaoIndividuo>
+  <tipoNovaGeracao>2</tipoNovaGeracao>
+
+</configuracaoTSP>

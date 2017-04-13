@@ -1,0 +1,109 @@
+Resultados Optimos
+###################
+
+https://github.com/forio/route-optimizer/tree/master/model/tsp_data
+
+########################
+Bibliotecas necessárias
+########################
+
+Para compilação
+----------------
+libxml++2.6-2
+libxml++2.6-2.dev
+
+Para execução
+--------------
+libxml2
+
+Compila com:
+    g++ `xml2-config --cflags --libs` -o tsp tsp.cpp
+
+##########################
+Execução (linha de coando)
+##########################
+
+$ ./tsp <arquivo de cidades> <-c <arquivo de configuração>> 
+
+<arquivo de cidades> - arquivo no formato xml contendo a lista de cidades e suas distâncias
+<-c> - permite configurar as variáveis. Aparecerá um input das variáveis. Pode vir acompanhado
+       parâmetro:
+
+       <arquivo de configuração> - arquivo xml, cujo layout está definido neste manual, permitindo
+                                   a parametrização do sistema.
+
+exemplos:
+   $ ./tsp gr96.txt
+   $ ./tsp gr96.txt -c
+   $ ./tsp gr96.txt -c tspconfig.xml
+
+###########################################
+Parâmetros de configuração do programa TSP
+##########################################
+
+Mensagem:        Tipo de mutação do indivíduo
+Parâmetro XML:   tipoMutacaoIndividuo
+Descrição:
+    O tipo de mutação a ser sofrida pelo indivíduo
+
+0 - mutação 2opt
+1 - Mutação simples, escolhe 2 genes e realiza um cruzamente
+2 - Mutação do artigo, realiza 2opt aleatório e troca apenas se melhorar
+3 - Mutação rápida, apenas troca 2 genes de posição
+4 - realiza todas as mutações existentes de forma aleatótia
+5 - mutação 3-opt
+
+----------------------------------------------
+
+Mensagem:        Forma de mutação da população
+Parâmetro XML:   tipoMutacaoPopulacao
+Descrição:
+    Forma com que ocorrerá a mutação na população
+0 - A escolha dos indivíduos que sofrerão mutação é completamente aleatória
+1 - O melhor indivíduo nunca sofre mutação
+2 - O melhor indivíduo sempre sofrerá mutação
+3 - O melhor indivíduo sempre sofrerá mutação 2opt, o restante dependerá do tipo de mutação individual
+4 - O melhor indivíduo sempre sofrerá 2opt que melhora, o restante dependerá da mutação individual
+
+----------------------------------------------
+
+Mensagem:        Forma como a nova geração será gerada
+Parâmetro XML:   tipoNovaGeracao
+Descrição:
+    Forma como a nova geração será gerada
+
+0 - Substitui percentualmente os piores indivíduos
+1 - Substitui os indivíduos com distância próximas ao anterior
+2 - Mutação na distância 0
+3 - Crossover na distância 0
+
+----------------------------------------------
+
+Mensagem:        Tamanho da população
+Parâmetro XML:   tamPopulacao
+Descrição:
+    Tamanho da população que será trabalhada
+
+----------------------------------------------
+
+Mensagem:        Número máximo de gerações
+Parâmetro XML:   maxGeracao
+Descrição:
+    Número de laços (gerações) que serão executadas
+
+----------------------------------------------
+
+Mensagem:        Percentual de manipuação da população
+Parâmetro XML:   percentManipulacao
+Descrição:
+    Percentual da população que será manipulada a cada geração (exclusão / descendente)
+
+----------------------------------------------
+
+Mensagem:        Percentual de mutação
+Parâmetro XML:   percentMutacao
+Descrição:
+    Percentual da população que sofrerá mutação a cada geração
+
+----------------------------------------------
+
